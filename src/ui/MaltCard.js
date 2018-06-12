@@ -29,15 +29,13 @@ const MaltCard = (props) => (
                     <option value="acidificado">Acidificado</option>
                     <option value="trigo-torrado">Trigo torrado</option>
                     <option value="carafa">Carafa</option>
-
                 </select>
                 <p></p>
                 {/*<p className="card-text" style={{ paddingBottom: '10px' }}>{props.text1}</p>*/}
                 <div className="card-footer">
                     {/*<p className="card-text" style={{ paddingTop: '20px' }}>{props.text2}</p>*/}
                     <form action="GET">
-                        <input type="number" style={{ width: '90%' }} name="pct" placeholder="   Quantidade desejada, em %" />
-                    </form><p></p>
+                    <input type="number" name="pct" placeholder="Quantidade desejada, em %" style={{ width: '90%', textAlign: 'center', textAlignLast: 'auto' }} />                    </form><p></p>
                     <a href="#" className="btn btn-primary">Go somewhere</a>
                 </div>
             </div>

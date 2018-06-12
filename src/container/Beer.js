@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MaltCard from '../ui/MaltCard';
 import HopCard from '../ui/HopCard';
 import YeastCard from '../ui/YeastCard';
-import IngredientCard from '../ui/IngredientCard';
+import AdditionalCard from '../ui/AdditionalCard';
 import TextCard from '../ui/TextCard';
 
 class Beer extends Component {
@@ -30,7 +30,7 @@ class Beer extends Component {
         img: 'http://www.mundoboaforma.com.br/wp-content/uploads/2015/05/levedo-de-cerveja.jpg'
     }
 
-    aditionalCard = {
+    additionalCard = {
         title: 'Ingrediente Adicional'
     }
 
@@ -42,7 +42,7 @@ class Beer extends Component {
                     <MaltCard {...this.malte} />
                     <HopCard {...this.lupulo} />
                     <YeastCard {...this.levedura} />
-                    <IngredientCard {...this.aditional} />
+                    <AdditionalCard {...this.additional} />
                 </div>
             </div>
         );
