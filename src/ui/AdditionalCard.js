@@ -2,8 +2,8 @@ import React from 'react';
 
 const AdditionalCard = (props) => (
         
-    <div className="col-8 col-sm-12 " style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-        <button type="button" className="btn btn-primary btn-lg center-block">Ingrediente Adicional</button>
+    <div className="col-12 col-sm-12" style={{ paddingTop: '50px', paddingBottom: '50px' }}>
+        <button type="button" style={{width: 'auto', height: 'auto'}} className="btn btn-primary btn-lg center-block">Ingrediente Adicional</button>
         {/*<div className="card" style={{  }}>
             <img className="card-img-top" src={props.img} style={{}} title={props.text} />
             <div className="card-body text-center">

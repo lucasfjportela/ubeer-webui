@@ -7,7 +7,7 @@ const HopCard = (props) => (
             <div className="card-body text-center">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">Selecione o tipo desejado de lúpulo:</p>
-                <select name="tipo-lupulo">
+                <select name="tipo-lupulo" style={{ width: '100%', textAlign: 'center' }}>
                     <optgroup label="Lúpulos Alemães e Tchecos">
                         <option value="saphir">Saphir</option>
                         <option value="hallertauer-mittelfruh">Hallertauer Mittelfruh</option>

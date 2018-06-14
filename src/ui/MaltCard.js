@@ -7,7 +7,7 @@ const MaltCard = (props) => (
             <div className="card-body text-center">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">Selecione o tipo desejado de malte:</p>
-                <select name="tipo-malte">
+                <select className="text-center" name="tipo-malte" style={{ width: '100%', textAlign: 'center' }}>
                     <option value="pilsen">Pilsen</option>
                     <option value="munich">Munich</option>
                     <option value="viena">Viena</option>

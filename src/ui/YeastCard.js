@@ -7,7 +7,7 @@ const YeastCard = (props) => (
             <div className="card-body text-center">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">Selecione o tipo desejado de levedura:</p>
-                <select name="tipo-levedura">
+                <select name="tipo-levedura" style={{ width: '100%', textAlign: 'center' }}>
                     <optgroup label="Lager">
                         <option value="s-calbergensis">Saccharomyces calbergensis</option>
                     </optgroup>
