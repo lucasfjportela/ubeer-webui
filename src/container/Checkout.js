@@ -11,7 +11,7 @@ class Checkout extends Component {
 
     render() {
         return (
-            <div className="container text-center">
+            <div className="container container-fluid text-center">
                 <div className="row">
                     <TextCard {...this.textCard} />
                     <CheckoutCard {...this.checkoutCard} />
