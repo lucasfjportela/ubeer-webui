@@ -6,6 +6,7 @@ import Header from './ui/Header.js';
 import Home from './container/Home';
 import Beer from './container/Beer';
 import Checkout from './container/Checkout';
+import Footer from './ui/Footer';
 
 class App extends Component {
  
@@ -13,10 +14,11 @@ class App extends Component {
 
     const name = "UBEER";
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Header logo={logo} />
         <NavBar name={name} />
         {this.props.children}
+        <Footer />
       </div>
     );
   }

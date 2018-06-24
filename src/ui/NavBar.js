@@ -3,9 +3,8 @@ import { Link } from 'react-router';
 
 const NavBar = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{paddingBottom: '50px'}} >
+        <nav className="navbar fixed-top navbar-expand-lg navbar-light" style={{backgroundColor: 'darkgoldenrod'}}>
             {/*<Link to='/' className='navbar-brand'>{props.name}</Link>*/}
-            <a className="navbar-brand">{props.name}</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

@@ -7,8 +7,9 @@ const MaltCard = (props) => (
             <div className="card-body text-center">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">Selecione o tipo desejado de malte:</p>
-                <select name="tipo-malte" style={{ width: '100%', textAlign: 'center' }}>
-                    <option value="pilsen">Pilsen</option>
+                <select name="tipo-malte" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
+                    {props.ingredients}
+                    {/* <option value="pilsen">Pilsen</option>
                     <option value="munich">Munich</option>
                     <option value="viena">Viena</option>
                     <option value="defumado">Defumado</option>
@@ -28,15 +29,16 @@ const MaltCard = (props) => (
                     <option value="melanoidina">Melanoidina</option>
                     <option value="acidificado">Acidificado</option>
                     <option value="trigo-torrado">Trigo torrado</option>
-                    <option value="carafa">Carafa</option>
+                    <option value="carafa">Carafa</option> */}
                 </select>
                 <p></p>
                 {/*<p className="card-text" style={{ paddingBottom: '10px' }}>{props.text1}</p>*/}
                 <div className="card-footer">
                     {/*<p className="card-text" style={{ paddingTop: '20px' }}>{props.text2}</p>*/}
-                    <form action="GET">
-                    <input type="number" name="pct" placeholder="Quantidade desejada, em %" style={{ width: '90%', textAlign: 'center', textAlignLast: 'auto' }} />                    </form><p></p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <form>
+                        <input type="number" class="form-control" placeholder="Quantidade de malte (kg)"></input>
+                        <p></p>
+                    </form>
                 </div>
             </div>
         </div>

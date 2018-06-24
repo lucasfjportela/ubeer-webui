@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import ToggleDisplay from 'react-toggle-display';
 
 class AdditionalIngredientCard extends Component {
-    additionalIngredientCard = {
-        title: 'Ingrediente Adicional',
-        //img: 'http://topcervejeiras.com.br/wp-content/uploads/2017/01/cerveja-artesanal.jpg'
-        img: 'https://www.hypeness.com.br/wp-content/uploads/2017/07/EDIT_Especiarias.jpg'
-    }
-
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { show: false };
+
+        this.additionalIngredientCard = props;
     }
 
     handleClick() {
@@ -32,7 +28,7 @@ class AdditionalIngredientCard extends Component {
                                 <div className="card-body text-center">
                                     <h4 className="card-title">Ingrediente Adicional</h4>
                                     <p className="card-text">Selecione o ingrediente adicional desejado:</p>
-                                    <select name="ingrediente-adicional" style={{ width: '100%', textAlign: 'center' }}>
+                                    <select name="ingrediente-adicional" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
                                         <option value="raiz-de-angelica">Raiz de Angélica</option>
                                         <option value="anis">Anis</option>
                                         <option value="casca-de-laranja-amarga">Casca de Laranja amarga</option>
@@ -59,7 +55,7 @@ class AdditionalIngredientCard extends Component {
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-primary btn-lg btn-block" type="submit">Finalizar pedido</button>
+                    <button className="btn btn-primary btn-lg btn-block" type="submit">Prosseguir com o pagamento</button>
                 </ToggleDisplay>
             </div>
         );
