@@ -60,7 +60,7 @@ const CheckoutCard = () => (
 
         <div className="container">
             {/*<div className="row" style={{ paddingTop: '20px', width: '100%' }}>*/}
-            <div className="row" style={{paddingBottom: '30px'}}>
+            <div className="row" style={{ paddingBottom: '30px' }}>
 
                 {/*div className="row" style={{ paddingTop: '20px', width: '100%' }}>*/}
                 {/*<div className="row">    */}
@@ -144,7 +144,7 @@ const CheckoutCard = () => (
                             </div>
                         </div>
 
-                        <div className="mb-3">
+                        {/*<div className="mb-3">
                             <label for="username">Username</label>
                             <div className="input-group">
                                 <div className="input-group-prepend">
@@ -155,7 +155,7 @@ const CheckoutCard = () => (
                                     Your username is required.
                             </div>
                             </div>
-                        </div>
+                        </div>*/}
 
                         <div className="mb-3">
                             <label for="email">Email <span className="text-muted">(Optional)</span></label>
@@ -173,15 +173,15 @@ const CheckoutCard = () => (
                         </div>
                         </div>
 
-                        <div className="mb-3">
+                        {/*<div className="mb-3">
                             <label for="address2">Address 2 <span className="text-muted">(Optional)</span></label>
                             <input type="text" className="form-control" id="address2" placeholder="Apartment or suite" />
-                        </div>
+                        </div>*/}
 
                         <div className="row">
                             <div className="col-md-5 mb-3">
-                                <label for="country">Country</label>
-                                <select className="custom-select d-block w-100" id="country" required>
+                                <label for="country">Cidade</label>
+                                <select className="custom-select d-block w-100" id="city" required>
                                     <option value="">Choose...</option>
                                     <option>United States</option>
                                 </select>
@@ -190,10 +190,39 @@ const CheckoutCard = () => (
                             </div>
                             </div>
                             <div className="col-md-4 mb-3">
-                                <label for="state">State</label>
-                                <select className="custom-select d-block w-100" id="state" required>
+                                <label for="state">Estado</label>
+                                {/*<select className="custom-select d-block w-100" id="state" required>
                                     <option value="">Choose...</option>
                                     <option>California</option>
+                                </select>*/}
+                                <select className="custom-select d-block w-100" id="estados-brasil" required>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
                                 </select>
                                 <div className="invalid-feedback">
                                     Please provide a valid state.
