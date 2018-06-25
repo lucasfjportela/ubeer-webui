@@ -23,20 +23,6 @@ import React from 'react';
 //     });
 // };
 
-const createBeer = (data) => {
-    return fetch('http://localhost:8000/beer', {
-        method: 'POST',
-        mode: 'CORS',
-        body: JSON.stringify(this.beerTest),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => {
-        console.log(res);
-        return res;
-    }).catch(err => err);
-};
-
 const CheckoutCard = (props) => (
     <div className="container-fluid text-center">
         <div className="text-center" style={{ paddingTop: '20px', width: '100%' }}>
@@ -48,14 +34,15 @@ const CheckoutCard = (props) => (
                 {/*<li className="list-group-item d-flex justify-content-between lh-condensed">*/}
                 <li className="list-group-item lh-condensed bg-secondary text-center" style={{ alignItems: 'center', width: '800px', height: 'auto', textAlign: 'center'}}>
                     <div>
-                        <h4 className="my-0" style={{ textAlign: 'center' }}>Resumo</h4>
+                        <h4 className="my-0" style={{ textAlign: 'center', color: 'white'}}>Resumo</h4>
+                        <hr></hr>
                             { props.beer ?
-                            <div>
-                                    <small className="text-muted"><b>Malte: </b>{props.beer.malt.name} - {props.beer.malt.quantity}kg</small><br></br>
-                                    <small className="text-muted"><b>Lúpulo: </b>{props.beer.hop.name} - {props.beer.hop.quantity}kg</small><br></br>
-                                    <small className="text-muted"><b>Levedura: </b>{props.beer.yeast.name} - {props.beer.yeast.quantity}g</small><br></br>
-                                    <small className="text-muted"><b>Adicional: </b>{props.beer.addt.name}</small><br></br>
-                                    <span className="text-muted"><b>Total: R$ {props.price}</b></span>
+                            <div  style={{color: 'white'}}>
+                                    <small><b>Malte: </b>{props.beer.malt.name} - {props.beer.malt.quantity}kg</small><br></br>
+                                    <small ><b>Lúpulo: </b>{props.beer.hop.name} - {props.beer.hop.quantity}kg</small><br></br>
+                                    <small><b>Levedura: </b>{props.beer.yeast.name} - {props.beer.yeast.quantity} sachê(s)</small><br></br>
+                                    <small ><b>Adicional: </b>{props.beer.addt.name}</small><br></br>
+                                    <span ><b>Total: R$ {props.price}</b></span>
                             </div>
                                  :
                             <p>Nenhum pedido realizado ainda....</p>
@@ -77,7 +64,9 @@ const CheckoutCard = (props) => (
         <div className="container">
             <div className="row" style={{paddingBottom: '30px'}}>
                 <div className="col-sm-6">
-                    <h2 className="mb-3 text-white">Pagamento</h2>
+                <h2 className="d-flex justify-content-center align-items-center mb-3">
+                    <span className="text-muted">Pagamento</span>
+                </h2>
                     <div className="d-block my-4" style={{}}>
                         <div>
                             <figure class="figure col-sm-6">
@@ -95,19 +84,21 @@ const CheckoutCard = (props) => (
                 </div>
 
                 <div className="col-sm-6">
-                    <h2 className="mb-3 text-white">Dados Pessoais</h2>
+                    <h2 className="d-flex justify-content-center align-items-center mb-3">
+                        <span className="text-muted">Dados Pessoais</span>
+                    </h2>
                     <form className="needs-validation" novalidate>
                         <div className="row">
                             <div className="col-md-6 mb-3 text-white">
                                 <label for="firstName">Primeiro nome</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="Harry" value="" required />
+                                <input type="text" name="firstName" onChange={props.handleUserForm} className="form-control" id="firstName" placeholder="Harry" required />
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                             </div>
                             </div>
                             <div className="col-md-6 mb-3 text-white">
                                 <label for="lastName">Último nome</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="Potter" value="" required />
+                                <input type="text" name="lastName" onChange={props.handleUserForm}  className="form-control" id="lastName" placeholder="Potter" required />
                                 <div className="invalid-feedback text-white">
                                     Valid last name is required.
                                 </div>
@@ -116,7 +107,7 @@ const CheckoutCard = (props) => (
                         
                         <div className="mb-3 text-white">
                             <label for="email">Email</label>
-                            <input type="email" className="form-control" id="email" placeholder="custom@ubeer.com" />
+                            <input type="email" name="email" onChange={props.handleUserForm} className="form-control" id="email" placeholder="custom@ubeer.com" />
                             <div className="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                         </div>
@@ -124,7 +115,7 @@ const CheckoutCard = (props) => (
 
                         <div className="mb-3 text-white">
                             <label for="address">Endereço</label>
-                            <input type="text" className="form-control" id="address" placeholder="Beco Diagonal, 1234 A" required />
+                            <input type="text" name="address" onChange={props.handleUserForm}  className="form-control" id="address" placeholder="Beco Diagonal, 1234 A" required />
                             <div className="invalid-feedback">
                                 Please enter your shipping address.
                         </div>
@@ -135,7 +126,7 @@ const CheckoutCard = (props) => (
                                 <label for="country">País</label>
                                 <select className="custom-select d-block w-100" id="country" required>
                                     <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option>Brasil</option>
                                 </select>
                                 <div className="invalid-feedback">
                                     Please select a valid country.
@@ -143,10 +134,7 @@ const CheckoutCard = (props) => (
                             </div>
                             <div className="col-md-4 mb-3 text-white">
                                 <label for="state">Estado</label>
-                                {/*<select className="custom-select d-block w-100" id="state" required>
-                                    <option value="">Choose...</option>
-                                    <option>California</option>
-                                </select>*/}
+
                                 <select className="custom-select d-block w-100" id="estados-brasil" required>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
@@ -202,6 +190,8 @@ const CheckoutCard = (props) => (
         <form onSubmit={props.handleCheckout} action="#">
             <button className="btn btn-success btn-lg btn-block" value="Submit" type="submit">Finalizar pedido</button>            
         </form>
+
+        
 
     </div>
 );

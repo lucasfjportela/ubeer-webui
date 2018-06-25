@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TextCard from '../ui/TextCard';
 import CheckoutCard from '../ui/CheckoutCard';
 import axios from 'axios';
+import ReactDOM from 'react-dom';
 
 class Checkout extends Component {
     constructor(props) {
@@ -10,71 +11,83 @@ class Checkout extends Component {
         this.state = {
             beer: this.props.location.state ? this.props.location.state.data : null,
             ingredients: this.props.location.state ? this.props.location.state.ingredients : null,
+            user: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                address: "",
+            }
         }
 
         console.log(this.state.ingredients);
 
         this.createCheckout = this.createCheckout.bind(this);
         this.createBeer = this.createBeer.bind(this);
+        this.handleForm = this.handleForm.bind(this);
     }
 
-    createBeer(beers) {
+    createBeer(event) {
+        event.preventDefault();
         let data = new FormData();
-        const beer = [{
-                "ingredient": "ef30ee85-b331-4e6a-9e6d-06f94a819bc0",
-                "quantity": 435.34
-            },
-            {
-                "ingredient": "dsadadadsa",
-                "quantity": 3444.4, 
-            }
-        ];
+        let beerData = [];
 
-        beer.map(ingredient => {
-            data.append("ingredients", JSON.stringify(ingredient));
-        });
+        for(let elem in this.state.beer) {
+            beerData.push(this.state.beer[elem]);            
+        }
 
         return fetch('http://localhost:8000/beer', {
             method: 'POST',
-            mode: "no-cors",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },  
-            body: data,
-        }).then(res => {
-            return res.json().uuid;
-        }).catch(err => err);
-    }
-
-    createCheckout() {
-        let data = new FormData();
- 
-        const checkout = {
-            beer: "dasdasd",
-            user: "j.alexandreeneto@gmail.com",
-            price: 435.23,
-            paymentMethod: "boleto",
-            paymentStatus: false,
-        };
-
-        data.append("beer", checkout.beer);
-        data.append("user", checkout.user);
-        data.append("price", checkout.price);
-        data.append("paymentMethod", checkout.paymentMethod);
-        data.append("paymentStatus", checkout.paymentStatus);
-
-        return fetch('http://localhost:8000/checkout', {
-            method: 'POST',
-            mode: "no-cors",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },  
+            },
             body: data,
         }).then(res => {
             console.log(res);
-        }).catch(err => err);
+            return res.json();
+        }).then(data => {
+            console.log(data);
+        })
+        .catch(err => err);
+    }
+
+    createCheckout(event) {
+        event.preventDefault();
+        // let data = new FormData();
+ 
+        // this.createBeer(event).then(res => {
+        //     // console.log(JSON.stringify(res));
+        // });
+
+        // data.append("beer", checkout.beer);
+        // data.append("user", checkout.user);
+        // data.append("price", checkout.price);
+        // data.append("paymentMethod", checkout.paymentMethod);
+        // data.append("paymentStatus", checkout.paymentStatus);
+
+        // return fetch('http://localhost:8000/checkout', {
+        //     method: 'POST',
+        //     mode: "no-cors",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },  
+        //     body: data,
+        // }).then(res => {
+        //     console.log(res);
+        // }).catch(err => err);
+    }
+
+    handleForm(event) {
+        event.preventDefault();
+
+        const user = Object.assign({}, this.state.user);
+
+        user[event.target.name] = event.target.value;
+
+        this.setState({user: user});
+
+        console.log(this.state.user);
     }
 
     textCard = {
@@ -83,8 +96,9 @@ class Checkout extends Component {
     }
 
     checkoutCard = {
-        handleCreateBeer: this.createBeer,
-        handleCheckout: this.createCheckout,
+        handleCreateBeer: this.createBeer.bind(this),
+        handleCheckout: this.createCheckout.bind(this),
+        handleUserForm: this.handleForm.bind(this),
     }
 
     render() {
@@ -108,7 +122,7 @@ class Checkout extends Component {
 
         return (
             <div>
-            <div className="container container-fluid text-center">
+            <div className="container container-fluid text-center" style={{ paddingTop: '20px'}}>
                 <div className="row">
                     {/* <TextCard {...this.textCard} /> */}
                     <CheckoutCard {...this.checkoutCard} />
