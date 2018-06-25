@@ -1,114 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-{/*class MaltCard extends React.Component {
-    constructor(props){
+class MaltCard extends Component {
+    constructor(props) {
         super(props);
-        this.state = {
 
+        this.state = {
+            value: "",
         };
 
-        this.test = props;
+        this.handleChange = this.handleChange.bind(this);
     }
 
-
-    getData = () => {
-        // [...somewhere in here I define a variable which  
-        // I think will be useful as data in other component...]
-        var type;
-
+    handleChange(event) {
+        if(event.target.type !== 'number') {
+            this.setState({value: event.target.value});
+        }
+        this.props.handle(event);
     }
 
     render() {
-        return(
+        return (
             <div className="col-12 col-sm-4" style={{ paddingTop: '50px' }}>
-        <div className="card">
-            <img className="card-img-top" src={test.img} style={{}} title={test.text} />
-            <div className="card-body text-center">
-                <h4 className="card-title">{test.title}</h4>
-                <p className="card-text">Selecione o tipo desejado de malte:</p>
-                <select name="tipo-malte" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
-                    {test.ingredients}
-                    {/* <option value="pilsen">Pilsen</option>
-                    <option value="munich">Munich</option>
-                    <option value="viena">Viena</option>
-                    <option value="defumado">Defumado</option>
-                    <option value="pale-ale">Pale Ale</option>
-                    <option value="trigo-claro">Trigo claro</option>
-                    <option value="trigo-escuro">Trigo escuro</option>
-                    <option value="malte-de-centeio">Malte de Centeio</option>
-                    <option value="carahell">Carahell</option>
-                    <option value="carared">Carared</option>
-                    <option value="caramunich">Caramunich</option>
-                    <option value="caraaroma">Caraaroma</option>
-                    <option value="caraamber">Caraamber</option>
-                    <option value="carapils">Carapils</option>
-                    <option value="carabelge">Carabelge</option>
-                    <option value="carabohemian">Carabohemian</option>
-                    <option value="carawheat">Carawheat</option>
-                    <option value="melanoidina">Melanoidina</option>
-                    <option value="acidificado">Acidificado</option>
-                    <option value="trigo-torrado">Trigo torrado</option>
-                    <option value="carafa">Carafa</option> 
-                </select>
-                <p></p>
-                {/*<p className="card-text" style={{ paddingBottom: '10px' }}>{props.text1}</p>
-                <div className="card-footer">
-                    {/*<p className="card-text" style={{ paddingTop: '20px' }}>{props.text2}</p>
-                    <form>
-                        <input type="number" class="form-control" placeholder="Quantidade de malte (kg)"></input>
+                <div className="card">
+                    <img className="card-img-top" src={this.props.img} style={{}} title={this.props.text} />
+                    <div className="card-body text-center">
+                        <h4 className="card-title">{this.props.title}</h4>
+                        <p className="card-text">Selecione o tipo desejado de malte:</p>
+                        <select value={this.state.value} onChange={this.handleChange} class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
+                            <option id="dasd" value="test"></option>
+                            {this.props.ingredients}
+                        </select>
                         <p></p>
-                    </form>
+                        <div className="card-footer">
+                            <form>
+                                <input type="number" onChange={this.handleChange} class="form-control" placeholder="Quantidade de malte (kg)"></input>
+                                <p></p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div >
-        );
+            </div >
+        )
     }
-};*/}
-
-const MaltCard = (props) => (
-    <div className="col-12 col-sm-4" style={{ paddingTop: '50px' }}>
-        <div className="card bg-secondary mb-3">
-            <img className="card-img-top" src={props.img} style={{}} title={props.text} />
-            <div className="card-body text-center text-white">
-                <h4 className="card-title">{props.title}</h4>
-                <p className="card-text">Selecione o tipo desejado de malte:</p>
-                <select name="tipo-malte" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
-                    {props.ingredients}
-                    {/* <option value="pilsen">Pilsen</option>
-                    <option value="munich">Munich</option>
-                    <option value="viena">Viena</option>
-                    <option value="defumado">Defumado</option>
-                    <option value="pale-ale">Pale Ale</option>
-                    <option value="trigo-claro">Trigo claro</option>
-                    <option value="trigo-escuro">Trigo escuro</option>
-                    <option value="malte-de-centeio">Malte de Centeio</option>
-                    <option value="carahell">Carahell</option>
-                    <option value="carared">Carared</option>
-                    <option value="caramunich">Caramunich</option>
-                    <option value="caraaroma">Caraaroma</option>
-                    <option value="caraamber">Caraamber</option>
-                    <option value="carapils">Carapils</option>
-                    <option value="carabelge">Carabelge</option>
-                    <option value="carabohemian">Carabohemian</option>
-                    <option value="carawheat">Carawheat</option>
-                    <option value="melanoidina">Melanoidina</option>
-                    <option value="acidificado">Acidificado</option>
-                    <option value="trigo-torrado">Trigo torrado</option>
-                    <option value="carafa">Carafa</option>*/} 
-                </select>
-                <p></p>
-                {/*<p className="card-text" style={{ paddingBottom: '10px' }}>{props.text1}</p>*/}
-                <div className="card-footer">
-                    {/*<p className="card-text" style={{ paddingTop: '20px' }}>{props.text2}</p>*/}
-                    <form>
-                        <input type="number" class="form-control" placeholder="Quantidade de malte (kg)"></input>
-                        <p></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div >
-);
+}
 
 export default MaltCard;

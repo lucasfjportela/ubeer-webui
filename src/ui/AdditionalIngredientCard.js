@@ -4,9 +4,20 @@ import ToggleDisplay from 'react-toggle-display';
 class AdditionalIngredientCard extends Component {
     constructor(props) {
         super(props);
-        this.state = { show: false };
+
+        this.state = {
+            value: "",
+        };
 
         this.additionalIngredientCard = props;
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        if(event.target.type !== 'number') {
+            this.setState({value: event.target.value});
+        }
+        this.props.handle(event);
     }
 
     handleClick() {
@@ -28,28 +39,9 @@ class AdditionalIngredientCard extends Component {
                                 <div className="card-body text-center text-white">
                                     <h4 className="card-title">Ingrediente Adicional</h4>
                                     <p className="card-text">Selecione o ingrediente adicional desejado:</p>
-                                    <select name="ingrediente-adicional" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
-                                        <option value="raiz-de-angelica">Raiz de Angélica</option>
-                                        <option value="anis">Anis</option>
-                                        <option value="casca-de-laranja-amarga">Casca de Laranja amarga</option>
-                                        <option value="cardamomo">Cardamomo</option>
-                                        <option value="canela">Canela</option>
-                                        <option value="cravo-da-india">Cravo da Índia</option>
-                                        <option value="coentro">Coentro</option>
-                                        <option value="semente-de-cominho">Semente de Cominho</option>
-                                        <option value="inula-helenium">Inula Helenium</option>
-                                        <option value="gengibre">Gengibre</option>
-                                        <option value="graos-do-paraiso">Grãos-do-paraíso</option>
-                                        <option value="urze">Urze</option>
-                                        <option value="flor-de-hibiscus">Flor de Hibiscus</option>
-                                        <option value="musgo-irlandes">Musgo Irlandês</option>
-                                        <option value="flor-de-jasmin">Flor de Jasmin</option>
-                                        <option value="frutos-de-junipero">Frutos de Junípero</option>
-                                        <option value="casca-de-limao">Casca de Limão</option>
-                                        <option value="casca-de-laranja">Casca de Laranja</option>
-                                        <option value="folha-de-limonete">Folha de Limonete</option>
-                                        <option value="Camomila">Camomila</option>
-                                        <option value="erva-doce">Erva-doce</option>
+                                    <select value={this.state.value} onChange={this.handleChange} class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
+                                        <option id="dasd" value="test"></option>
+                                        {this.props.ingredients}
                                     </select>
                                 </div>
                             </div>

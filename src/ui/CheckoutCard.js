@@ -1,51 +1,67 @@
 import React from 'react';
+// import Boleto from 'node-boleto';
 
-const CheckoutCard = () => (
-    <div className="container-fluid bg-dark text-center" style={{ paddingTop: '20px'}}>
-        {/*<div className="py-5 text-center">
-            <img className="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
-        </div>*/}
+// const boletoGenerate = () => {
+//     const boleto = new Boleto({
+//         'banco': "santander", // nome do banco dentro da pasta 'banks'
+//         'data_emissao': new Date(),
+//         'data_vencimento': new Date(new Date().getTime() + 5 * 24 * 3600 * 1000), // 5 dias futuramente
+//         'valor': 1500, // R$ 15,00 (valor em centavos)
+//         'nosso_numero': "1234567",
+//         'numero_documento': "123123",
+//         'cedente': "Pagar.me Pagamentos S/A",
+//         'cedente_cnpj': "18727053000174", // sem pontos e traços
+//         'agencia': "3978",
+//         'codigo_cedente': "6404154", // PSK (código da carteira)
+//         'carteira': "102"
+//     });
 
-        {/*<div className="col-md-4 order-md-2 mb-4 text-center" style={{ paddingTop: '20px', width: '100%'}}>*/}
-        <div className="text-center" style={{ paddingTop: '20px'}}>
+//     console.log("Linha digitável: " + boleto['linha_digitavel'])
+
+//     boleto.renderHTML(function(html){
+//         console.log(html);
+//     });
+// };
+
+const createBeer = (data) => {
+    return fetch('http://localhost:8000/beer', {
+        method: 'POST',
+        mode: 'CORS',
+        body: JSON.stringify(this.beerTest),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        console.log(res);
+        return res;
+    }).catch(err => err);
+};
+
+const CheckoutCard = (props) => (
+    <div className="container-fluid text-center">
+        <div className="text-center" style={{ paddingTop: '20px', width: '100%' }}>
             <h4 className="d-flex justify-content-center align-items-center mb-3">
-                <span className="text-white">Sua cerveja</span>
+                <span className="text-muted">Sua cerveja está pronta para ser produzida</span>
                 <span className="badge badge-secondary badge-pill"></span>
             </h4>
             <ul className="card-body list-group mb-3 text-center" style={{ paddingTop: '10px', alignItems: 'center', paddingLeft: '20px' }}>
                 {/*<li className="list-group-item d-flex justify-content-between lh-condensed">*/}
                 <li className="list-group-item lh-condensed bg-secondary text-center" style={{ alignItems: 'center', width: '800px', height: 'auto', textAlign: 'center'}}>
                     <div>
-                        <h6 className="my-0 text-white text-center" style={{ textAlign: 'center' }}>Resumo da cerveja</h6>
-                        <small className="text-white">Tipo e quantidade de malte aqui</small>
+                        <h4 className="my-0" style={{ textAlign: 'center' }}>Resumo</h4>
+                            { props.beer ?
+                            <div>
+                                    <small className="text-muted"><b>Malte: </b>{props.beer.malt.name} - {props.beer.malt.quantity}kg</small><br></br>
+                                    <small className="text-muted"><b>Lúpulo: </b>{props.beer.hop.name} - {props.beer.hop.quantity}kg</small><br></br>
+                                    <small className="text-muted"><b>Levedura: </b>{props.beer.yeast.name} - {props.beer.yeast.quantity}g</small><br></br>
+                                    <small className="text-muted"><b>Adicional: </b>{props.beer.addt.name}</small><br></br>
+                                    <span className="text-muted"><b>Total: R$ {props.price}</b></span>
+                            </div>
+                                 :
+                            <p>Nenhum pedido realizado ainda....</p>
+                            }
                     </div>
-                    <span className="text-white">$12</span>
                 </li>
-                {/*<li className="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 className="my-0">Second product</h6>
-                            <small className="text-muted">Brief description</small>
-                        </div>
-                        <span className="text-muted">$8</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 className="my-0">Third item</h6>
-                            <small className="text-muted">Brief description</small>
-                        </div>
-                        <span className="text-muted">$5</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between bg-light">
-                        <div className="text-success">
-                            <h6 className="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span className="text-success">-$5</span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
-                    </li>*/}
             </ul>
 
             {/*<form className="card p-2" action="POST">
@@ -65,8 +81,10 @@ const CheckoutCard = () => (
                     <div className="d-block my-4" style={{}}>
                         <div>
                             <figure class="figure col-sm-6">
-                                <img src="boleto.png" width="120px" height="50px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></img>
-                                <figcaption class="figure-caption text-white">Gerar boleto</figcaption>
+                                <a href="#">
+                                    <img src="boleto.png" width="120px" height="50px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></img>
+                                </a>
+                                <figcaption class="figure-caption">Gerar boleto</figcaption>
                             </figure> 
                             <figure class="figure col-sm-6">
                                 <img src="paypal.png" width="160px" height="50px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></img>
@@ -175,19 +193,16 @@ const CheckoutCard = () => (
                             <input type="checkbox" className="custom-control-input" id="same-address" />
                             <label className="custom-control-label" for="same-address">Usar o endereço fornecido no boleto</label>
                         </div>
-                        {/* <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="save-info" />
-                            <label className="custom-control-label" for="save-info">Save this information for next time</label>
-                        </div> */}
-                        {/*<hr className="mb-4"></hr>*/}
-                        {/* aqui começava o payment*/}
                     </form>
                 </div>
 
             </div>
         </div>
 
-        <button className="btn btn-success btn-lg btn-block" type="submit">Finalizar pedido</button>
+        <form onSubmit={props.handleCheckout} action="#">
+            <button className="btn btn-success btn-lg btn-block" value="Submit" type="submit">Finalizar pedido</button>            
+        </form>
+
     </div>
 );
 
