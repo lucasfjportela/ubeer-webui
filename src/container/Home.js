@@ -17,7 +17,7 @@ class Home extends Component {
                         <div class="col-md-5 p-lg-5 mx-auto my-5">
                             <h1 class="display-4 font-weight-normal">Personalize sua cerveja!!</h1>
                             <p class="lead font-weight-normal">Você é cervejeiro e tem vontade de criar uma cerveja personalizada sem precisar montar uma fábrica em casa? Está no lugar certo!!</p>
-                            <Link to='/beer' className='btn btn-outline-secondary'>Experimente</Link>
+                            <Link to='/beer' className='btn btn-secondary btn-lg'>Experimente</Link>
                         </div>
                         <div class="product-device box-shadow d-none d-md-block"></div>
                         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>

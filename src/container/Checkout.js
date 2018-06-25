@@ -11,7 +11,7 @@ class Checkout extends Component {
 
     render() {
         return (
-            <div className="container container-fluid text-center">
+            <div className="container container-fluid text-center" style={{ paddingTop: '20px'}}>
                 <div className="row">
                     <TextCard {...this.textCard} />
                     <CheckoutCard {...this.checkoutCard} />

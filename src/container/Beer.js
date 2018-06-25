@@ -99,7 +99,7 @@ class Beer extends Component {
 
     render() {
         return (
-            <div className="container text-center">
+            <div className="container text-center" style={{ paddingTop: '20px'}}>
                 <div className="row red align-items-center justify-content-center bg-dark">
                     <TextCard {...this.textCard} />
                     <MaltCard {...this.generateCardData("Malte", this.maltCardInfo)} />

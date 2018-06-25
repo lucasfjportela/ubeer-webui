@@ -18,14 +18,14 @@ class AdditionalIngredientCard extends Component {
     render() {
         return (
             <div className="col-12 col-sm-12" style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-                <button onClick={() => this.handleClick()} type="button" style={{ width: 'auto', height: 'auto' }} className="btn btn-primary btn-lg center-block">Ingrediente Adicional</button>
+                <button onClick={() => this.handleClick()} type="button" style={{ width: 'auto', height: 'auto' }} className="btn btn-secondary btn-lg center-block">Ingrediente Adicional</button>
 
                 <ToggleDisplay show={this.state.show}>
                     <div className="row red align-items-center justify-content-center">
                         <div className="col col-4" style={{ paddingTop: '50px', paddingBottom: '50px', width: '100%' }}>
-                            <div className="card">
+                            <div className="card bg-secondary mb-3">
                                 <img className="card-img-top" src={this.additionalIngredientCard.img} style={{}} title={this.additionalIngredientCard.title} />
-                                <div className="card-body text-center">
+                                <div className="card-body text-center text-white">
                                     <h4 className="card-title">Ingrediente Adicional</h4>
                                     <p className="card-text">Selecione o ingrediente adicional desejado:</p>
                                     <select name="ingrediente-adicional" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>

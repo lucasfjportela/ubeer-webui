@@ -1,25 +1,25 @@
 import React from 'react';
 
 const CheckoutCard = () => (
-    <div className="container-fluid text-center">
+    <div className="container-fluid bg-dark text-center" style={{ paddingTop: '20px'}}>
         {/*<div className="py-5 text-center">
             <img className="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
         </div>*/}
 
         {/*<div className="col-md-4 order-md-2 mb-4 text-center" style={{ paddingTop: '20px', width: '100%'}}>*/}
-        <div className="text-center" style={{ paddingTop: '20px', width: '100%' }}>
+        <div className="text-center" style={{ paddingTop: '20px'}}>
             <h4 className="d-flex justify-content-center align-items-center mb-3">
-                <span className="text-muted">Sua cerveja</span>
+                <span className="text-white">Sua cerveja</span>
                 <span className="badge badge-secondary badge-pill"></span>
             </h4>
-            <ul className="card-body list-group mb-3 text-center" style={{ paddingTop: '10px' }}>
+            <ul className="card-body list-group mb-3 text-center" style={{ paddingTop: '10px', alignItems: 'center', paddingLeft: '20px' }}>
                 {/*<li className="list-group-item d-flex justify-content-between lh-condensed">*/}
-                <li className="list-group-item  lh-condensed">
+                <li className="list-group-item lh-condensed bg-secondary text-center" style={{ alignItems: 'center', width: '800px', height: 'auto', textAlign: 'center'}}>
                     <div>
-                        <h6 className="my-0" style={{ textAlign: 'center' }}>Resumo da cerveja</h6>
-                        <small className="text-muted">Tipo e quantidade de malte aqui</small>
+                        <h6 className="my-0 text-white text-center" style={{ textAlign: 'center' }}>Resumo da cerveja</h6>
+                        <small className="text-white">Tipo e quantidade de malte aqui</small>
                     </div>
-                    <span className="text-muted">$12</span>
+                    <span className="text-white">$12</span>
                 </li>
                 {/*<li className="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -61,42 +61,42 @@ const CheckoutCard = () => (
         <div className="container">
             <div className="row" style={{paddingBottom: '30px'}}>
                 <div className="col-sm-6">
-                    <h2 className="mb-3">Pagamento</h2>
+                    <h2 className="mb-3 text-white">Pagamento</h2>
                     <div className="d-block my-4" style={{}}>
                         <div>
                             <figure class="figure col-sm-6">
                                 <img src="boleto.png" width="120px" height="50px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></img>
-                                <figcaption class="figure-caption">Gerar boleto</figcaption>
+                                <figcaption class="figure-caption text-white">Gerar boleto</figcaption>
                             </figure> 
                             <figure class="figure col-sm-6">
                                 <img src="paypal.png" width="160px" height="50px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></img>
-                                <figcaption class="figure-caption">Mais praticidade</figcaption>
+                                <figcaption class="figure-caption text-white">Mais praticidade</figcaption>
                             </figure>  
                         </div>
                     </div>
                 </div>
 
                 <div className="col-sm-6">
-                    <h2 className="mb-3">Dados Pessoais</h2>
+                    <h2 className="mb-3 text-white">Dados Pessoais</h2>
                     <form className="needs-validation" novalidate>
                         <div className="row">
-                            <div className="col-md-6 mb-3">
+                            <div className="col-md-6 mb-3 text-white">
                                 <label for="firstName">Primeiro nome</label>
                                 <input type="text" className="form-control" id="firstName" placeholder="Harry" value="" required />
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                             </div>
                             </div>
-                            <div className="col-md-6 mb-3">
+                            <div className="col-md-6 mb-3 text-white">
                                 <label for="lastName">Último nome</label>
                                 <input type="text" className="form-control" id="lastName" placeholder="Potter" value="" required />
-                                <div className="invalid-feedback">
+                                <div className="invalid-feedback text-white">
                                     Valid last name is required.
                                 </div>
                             </div>
                         </div>
                         
-                        <div className="mb-3">
+                        <div className="mb-3 text-white">
                             <label for="email">Email</label>
                             <input type="email" className="form-control" id="email" placeholder="custom@ubeer.com" />
                             <div className="invalid-feedback">
@@ -104,7 +104,7 @@ const CheckoutCard = () => (
                         </div>
                         </div>
 
-                        <div className="mb-3">
+                        <div className="mb-3 text-white">
                             <label for="address">Endereço</label>
                             <input type="text" className="form-control" id="address" placeholder="Beco Diagonal, 1234 A" required />
                             <div className="invalid-feedback">
@@ -113,7 +113,7 @@ const CheckoutCard = () => (
                         </div>
 
                         <div className="row">
-                            <div className="col-md-5 mb-3">
+                            <div className="col-md-5 mb-3 text-white">
                                 <label for="country">País</label>
                                 <select className="custom-select d-block w-100" id="country" required>
                                     <option value="">Choose...</option>
@@ -123,7 +123,7 @@ const CheckoutCard = () => (
                                     Please select a valid country.
                             </div>
                             </div>
-                            <div className="col-md-4 mb-3">
+                            <div className="col-md-4 mb-3 text-white">
                                 <label for="state">Estado</label>
                                 {/*<select className="custom-select d-block w-100" id="state" required>
                                     <option value="">Choose...</option>
@@ -162,7 +162,7 @@ const CheckoutCard = () => (
                                     Please provide a valid state.
                             </div>
                             </div>
-                            <div className="col-md-3 mb-3">
+                            <div className="col-md-3 mb-3 text-white">
                                 <label for="zip">CEP</label>
                                 <input type="text" className="form-control" id="zip" placeholder="" required />
                                 <div className="invalid-feedback">
@@ -171,7 +171,7 @@ const CheckoutCard = () => (
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <div className="custom-control custom-checkbox">
+                        <div className="custom-control custom-checkbox text-white">
                             <input type="checkbox" className="custom-control-input" id="same-address" />
                             <label className="custom-control-label" for="same-address">Usar o endereço fornecido no boleto</label>
                         </div>

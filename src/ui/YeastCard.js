@@ -2,9 +2,9 @@ import React from 'react';
 
 const YeastCard = (props) => (
     <div className="col-12 col-sm-4" style={{ paddingTop: '50px' }}>
-        <div className="card">
+        <div className="card bg-secondary mb-3">
             <img className="card-img-top" src={props.img} style={{}} title={props.text} />
-            <div className="card-body text-center">
+            <div className="card-body text-center text-white">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">Selecione o tipo desejado de levedura:</p>
                 <select name="tipo-levedura" class="custom-select my-1 mr-sm-2" style={{ width: '100%', textAlign: 'center' }}>
