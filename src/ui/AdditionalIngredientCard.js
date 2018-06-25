@@ -55,7 +55,6 @@ class AdditionalIngredientCard extends Component {
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-primary btn-lg btn-block" type="submit">Prosseguir com o pagamento</button>
                 </ToggleDisplay>
             </div>
         );

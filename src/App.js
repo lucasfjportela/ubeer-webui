@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './img/u.png';
+import logo from './img/ubeer-logo.png';
 import './App.css';
 import NavBar from './ui/NavBar.js';
 import Header from './ui/Header.js';
@@ -14,7 +14,7 @@ class App extends Component {
 
     const name = "UBEER";
     return (
-      <div className="container-fluid">
+      <div className="container-fluid bg-warning">
         <Header logo={logo} />
         <NavBar name={name} />
         {this.props.children}

@@ -13,9 +13,15 @@ class Beer extends Component {
         // Initial ingredients state
         this.state = {
             ingredients: [],
+            data: {}
         }
 
         autoBind(this);
+    }
+
+    maltData = (data) => {
+        //[...we will use the dataFromChild here...]
+        this.setState({ data: data});
     }
 
     componentDidMount() {
@@ -94,12 +100,13 @@ class Beer extends Component {
     render() {
         return (
             <div className="container text-center">
-                <div className="row red align-items-center justify-content-center">
+                <div className="row red align-items-center justify-content-center bg-dark">
                     <TextCard {...this.textCard} />
                     <MaltCard {...this.generateCardData("Malte", this.maltCardInfo)} />
                     <HopCard {...this.generateCardData("Lupulo", this.hopCardInfo)} />
                     <YeastCard {...this.generateCardData("Levedura", this.barmCardInfo)} />
                     <AdditionalIngredientCard {...this.generateCardData("Adicional", this.additionalCardInfo)} />
+                    <button className="btn btn-primary btn-lg btn-block" type="submit">Prosseguir com o pagamento</button>
                 </div>
             </div>
         );
